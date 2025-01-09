@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   @override
   void initState() {
     _animationController = AnimationController(
-      duration: Duration(seconds: 2),
+      duration: Duration(seconds: 3),
       vsync: this)..repeat();
     super.initState();
   }
@@ -42,10 +42,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
         child: AnimatedBuilder(
           animation: _animationController,
           builder: (context, child) {
-            return Transform.rotate(
-              angle: _animationController.value * 2 * 3.1416, 
-              child: child,
-            );
+            return Transform.rotate( angle: _animationController.value *1 *10 , child: child,);
           },
           child: Icon(Icons.refresh, size: 100, color: Colors.blue),
         ),
