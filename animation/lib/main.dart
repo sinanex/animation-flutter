@@ -30,15 +30,9 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
     _animationController = AnimationController(
       duration: Duration(seconds: 2),
       vsync: this)..repeat();
-    // TODO: implement initState
     super.initState();
   }
   @override
-  void dispose() {
-    _animationController.dispose();
-    // TODO: implement dispose
-    super.dispose();
-  }
   @override
   
   Widget build(BuildContext context) {
