@@ -31,14 +31,17 @@ class HomePAge extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: Consumer<Animatedcontroller>(
-        builder:(context, value, child) =>  AnimatedContainer(duration: Duration(seconds: 2),
-        color: value.color,
-        width: value.width,
-        height: value.height,
-        child: Center(child: ElevatedButton(onPressed: (){
-    value.changeSize();
-        }, child: Text("animate")),),),
-      ),
+        builder:(context, value, child) =>  GestureDetector(
+          onTap: () {
+            value.changeSize();
+          },
+          child: AnimatedContainer(duration: Duration(seconds: 2),
+          color: value.color,
+          width: value.width,
+          height: value.height,
+                ),
+        ),
+      )
       );
   }
 }
