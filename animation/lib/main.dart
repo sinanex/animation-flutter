@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main(){
+void main() {
   runApp(MyApp());
 }
 
@@ -10,43 +10,48 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePage(),
+      debugShowCheckedModeBanner: false,
+      home: AnimationPage(),
     );
   }
 }
 
-
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class AnimationPage extends StatefulWidget {
+  const AnimationPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<AnimationPage> createState() => _AnimationPageState();
 }
 
-class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin  {
+class _AnimationPageState extends State<AnimationPage>
+    with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
+  late Animation<double> _animation;
   @override
   void initState() {
-    _animationController = AnimationController(
-      duration: Duration(seconds: 3),
-      vsync: this)..repeat();
+    _animationController =
+        AnimationController(vsync: this, duration: Duration(seconds: 3))
+          ..repeat();
+
+    _animation =
+        Tween<double>(begin: 0.0, end: 1.0).animate(_animationController);
     super.initState();
   }
+
   @override
-  @override
-  
   Widget build(BuildContext context) {
     return Scaffold(
- appBar: AppBar(title: Text("AnimatedBuilder ")),
-      body: Center(
-        child: AnimatedBuilder(
-          animation: _animationController,
-          builder: (context, child) {
-            return Transform.rotate( angle: _animationController.value *1 *10 , child: child,);
-          },
-          child: Icon(Icons.refresh, size: 100, color: Colors.blue),
+        appBar: AppBar(
+          title: Text("Animation Page"),
         ),
-      ),
-    );
+        body: AnimatedBuilder(
+          animation: _animation,
+          builder: (context, child) {
+            return Transform.translate(
+              offset: Offset(0, _animation.value * 1000),
+              child: FlutterLogo(),
+            );
+          },
+        ));
   }
 }
