@@ -15,9 +15,9 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: Center(
         child: AnimatedAlign(
-          child: FlutterLogo(),
           alignment: alignment ? Alignment.bottomLeft : Alignment.topRight,
           duration: const Duration(seconds: 3),
+          child: FlutterLogo(),
         ),
       ),
       floatingActionButton: FloatingActionButton(
