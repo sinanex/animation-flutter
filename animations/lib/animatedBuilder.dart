@@ -20,7 +20,7 @@ class _AnimatedbuilderExapmleState extends State<AnimatedbuilderExapmle>  with T
             height: 100,
           ),
           animation: _animation, builder: (context, child) {
-          return Transform.rotate(angle: _animation.value * 2 ,child: child,);
+          return Transform.rotate(angle: _animation.value * 2,child: child,);
         },),
       ),
     );

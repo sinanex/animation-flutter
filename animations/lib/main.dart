@@ -1,5 +1,5 @@
-import 'package:animations/aligment.dart';
-import 'package:animations/animatedBuilder.dart';
+
+import 'package:animations/hero.dart';
 import 'package:flutter/material.dart';
 
 void main()async{
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: AnimatedbuilderExapmle(),
+      home: HeroExamplePage(),
     );
   }
 }
