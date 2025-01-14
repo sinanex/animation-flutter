@@ -1,6 +1,5 @@
 
-import 'package:animations/hero.dart';
-import 'package:animations/sizetransition.dart';
+import 'package:animations/animated.dart';
 import 'package:flutter/material.dart';
 
 void main()async{
@@ -14,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SizetransitionAnimation(),
+      home: AnimatedTextPage(),
     );
   }
 }
