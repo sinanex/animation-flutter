@@ -16,15 +16,12 @@ class _AnimatedTextPageState extends State<AnimatedTextPage>
       Tween<double>(begin: 0.0, end: 1.0).animate(_controller);
       @override
   void initState() {
-
-    // TODO: implement initState
     super.initState();
 
     _controller.repeat(reverse: true);
   }
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     _controller.dispose();
   }
