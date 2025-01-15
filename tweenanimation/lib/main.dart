@@ -1,10 +1,8 @@
-
-import 'package:animations/animated.dart';
-import 'package:animations/sample.dart';
 import 'package:flutter/material.dart';
+import 'package:tweenanimation/home.dart';
 
-void main()async{
-  runApp(MyApp());
+void main(){
+   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -13,8 +11,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: StarAnimation(),
       debugShowCheckedModeBanner: false,
+      home: HomePage(
+        
+      ),
     );
   }
 }
