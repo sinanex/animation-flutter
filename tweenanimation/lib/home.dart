@@ -14,6 +14,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+    
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -37,48 +38,45 @@ class _HomePageState extends State<HomePage> {
                   },
                   child: Text(
                     "Animation \nFlutter!",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                    // style: TextStyle(fontWeight: fontWeight.bold, fontSize: 20),
                   ),
                 ),
               ),
             ),
-            activityCard(imageUrl: AllIMages.imageUrl1),
-            activityCard(imageUrl: AllIMages.imageUrl2),
-            activityCard(imageUrl: AllIMages.imageUrl3),
+              activityCard(imageUrl: AllIMages.imageUrl1),
+              activityCard(imageUrl:AllIMages.imageUrl2 ),
+              activityCard(imageUrl: AllIMages.imageUrl3),
+          
           ],
         ),
       ),
     );
   }
 
-  Widget activityCard({
-    required String imageUrl,
-  }) {
+  Widget activityCard({required String imageUrl ,}) {
     return GestureDetector(
-      onTap: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => DetailsPage(
-                      text: Lorem.text(),
-                      image: imageUrl,
-                    )));
+      onTap: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailsPage(text: Lorem.text(),image: imageUrl,)));
       },
       child: Container(
-        height: 100,
-        decoration: BoxDecoration(border: Border.all()),
-        child: Row(
-          children: [
-            Hero(
-              tag: imageUrl,
-              child: CircleAvatar(
-                backgroundImage: AssetImage(imageUrl),
-              ),
-            ),
-            Expanded(child: Text(Lorem.text()))
-          ],
-        ),
-      ),
+                  height: 100,
+                 decoration: BoxDecoration(
+                  border: Border.all()
+                
+                 ),
+                  child: Row(
+                    children: [
+                      Hero(
+                        tag: imageUrl,
+                        child: CircleAvatar(
+                          backgroundImage: AssetImage(imageUrl),
+                          
+                        ),
+                      ),
+                      Expanded(child: Text(Lorem.text()))
+                    ],
+                  ),
+                ),
     );
   }
 }

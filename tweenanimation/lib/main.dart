@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tweenanimation/home.dart';
+import 'package:tweenanimation/listpage.dart';
 
 void main(){
    runApp(MyApp());
@@ -12,9 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(
-        
-      ),
+      home: ListPage(),
     );
   }
 }
