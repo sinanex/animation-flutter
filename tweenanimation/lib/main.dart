@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tweenanimation/container.dart';
 import 'package:tweenanimation/listpage.dart';
 import 'package:tweenanimation/opacity.dart';
+import 'package:tweenanimation/postion.dart';
 
 void main(){
    runApp(MyApp());
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: AnimatedOpaPAge(),
+      home: AnimatedPostionPage(),
     );
   }
 }

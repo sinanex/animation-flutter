@@ -19,6 +19,7 @@ class _AnimatedOpaPAgeState extends State<AnimatedOpaPAge> {
             });
           },
           child: AnimatedOpacity(
+            curve: Curves.bounceOut,
             opacity: opacity,
             duration: Duration(seconds: 3),
             child: Container(
