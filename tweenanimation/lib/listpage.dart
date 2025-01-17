@@ -1,43 +1,44 @@
 import 'package:flutter/material.dart';
 
-class Listpage extends StatefulWidget {
-  const Listpage({super.key});
+class ListPageAnimationPage extends StatefulWidget {
+  const ListPageAnimationPage({super.key});
 
   @override
-  State<Listpage> createState() => _ListpageState();
+  State<ListPageAnimationPage> createState() => _ListPageAnimationPageState();
 }
 
-class _ListpageState extends State<Listpage> {
-  GlobalKey<AnimatedListState> _key = GlobalKey<AnimatedListState>();
-  List<int> arr = []; 
+class _ListPageAnimationPageState extends State<ListPageAnimationPage>
+    with TickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _animation;
 
-
-  Future getListData()async{
-     for(var i=0;i<10;i++){
-      Future.delayed(Duration(milliseconds: 100*i),(){
-           arr.add(i);
-          _key.currentState!.insertItem(i);
-      });
-     }
-  }
   @override
   void initState() {
-    getListData();
-    // TODO: implement initState
     super.initState();
+
+    _controller =
+        AnimationController(vsync: this, duration: Duration(seconds: 2));
+
+    _animation = Tween<double>(begin: 0.0, end: 5.0).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.bounceIn),
+    );
   }
+
+  @override
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(),
-    body:  AnimatedList(
-      key: _key,
-      itemBuilder: (context, index, animation) {
-      return SlideTransition(
-        position: animation.drive(Tween<Offset>(begin: Offset(1, 0),end: Offset(0, 0))),
-        child: ListTile(
-          title: Text(arr[index].toString()),
-        ),
-      );
-    },));
+    return Scaffold(
+        appBar: AppBar(),
+        body: Center(
+          child: AnimatedBuilder(
+              builder: (context, child) {
+                return Transform.translate(
+                  child: child,
+                    offset: Offset(_animation.value * 1, 0));
+              },
+              animation: _animation,
+              child: Text("text")),
+        ));
   }
 }
