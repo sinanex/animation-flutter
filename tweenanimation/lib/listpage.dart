@@ -25,8 +25,6 @@ class _ListPageAnimationPageState extends State<ListPageAnimationPage>
   }
 
   @override
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(),
@@ -34,8 +32,7 @@ class _ListPageAnimationPageState extends State<ListPageAnimationPage>
           child: AnimatedBuilder(
               builder: (context, child) {
                 return Transform.translate(
-                  child: child,
-                    offset: Offset(_animation.value * 1, 0));
+                    child: child, offset: Offset(_animation.value, 0));
               },
               animation: _animation,
               child: Text("text")),
